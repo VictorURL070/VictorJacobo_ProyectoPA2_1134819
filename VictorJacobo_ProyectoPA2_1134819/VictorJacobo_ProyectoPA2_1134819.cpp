@@ -10,6 +10,13 @@ using namespace std;
 using std::cout;
 using std::cin;
 
+void Menu();
+void Buscar(list<string>Registro);
+void ActualizarMedicamento(list<string>Registro);
+void IngresarMedicamento(list<string>Registro);
+void LeerRegistro(int n);
+void Mostrar(list<string>Registro);
+
 void Buscar(list<string>Registro)
 {
     fstream fout;
@@ -18,7 +25,7 @@ void Buscar(list<string>Registro)
 
     string actualizar;
     list<string> RegistroTemp;
-    int n;
+    int n = 0;
     cout << "Ingrese el medicamento a buscar. \n";
     cin >> actualizar;
 
@@ -34,7 +41,7 @@ void Buscar(list<string>Registro)
         {
             cout << "Medicamento no encontrado. \n";
         }
-
+        n++;
     }
     Menu();
 }
@@ -47,7 +54,7 @@ void ActualizarMedicamento(list<string>Registro)
 
     string actualizar;
     list<string> RegistroTemp;
-    int n;
+    int n = 0;
     cout << "Ingrese el medicamento a actualizar: \n";
     cin >> actualizar;
 
@@ -59,7 +66,7 @@ void ActualizarMedicamento(list<string>Registro)
             RegistroTemp.push_front(actualizar);
             cout << "Medicamento Actualizado. \n";
         }
-        
+        n++;
     }
     std::ofstream ofs;
     ofs.open("registro.csv", std::ofstream::out | std::ofstream::trunc);
@@ -151,7 +158,7 @@ void LeerRegistro(int n)
 
 void Mostrar(list<string>Registro)
 {
-    int i;
+    int i = 0;
     list<string>Registro2;
 
     cout << "Este es todo el registro.\n";
